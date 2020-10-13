@@ -12,7 +12,7 @@ public class BaseApi {
     }
 
     public static String combineUrl(String baseUrl, String urlPart){
-        return String.format("%s%s", PropertyHelper.getBaseUrl(),urlPart);
+        return String.format("%s%s", baseUrl,urlPart);
     }
 
     public static String combineUrl(String urlPart){

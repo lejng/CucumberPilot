@@ -1,6 +1,7 @@
 package tests.portal.pages;
 
 import base.BaseComponent;
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import tests.portal.entities.UserEntity;
 import static com.codeborne.selenide.Selenide.$;
@@ -16,6 +17,8 @@ public class LoginPage extends BaseComponent {
 
     public boolean isErrorMessageDisplayed(){
         waitForLoadScripts();
-        return $(By.xpath("//*[@id='login_message']//div[contains(@class,'msg error')]")).isDisplayed();
+        By locator = By.xpath("//*[@id='login_message']//div[contains(@class,'msg error')]");
+        waitUntil($(locator), Condition.exist);
+        return $(locator).isDisplayed();
     }
 }

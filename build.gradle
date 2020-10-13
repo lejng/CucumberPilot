@@ -35,7 +35,7 @@ task runCucumberTests() {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'pretty', '--plugin', 'io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm',
-                    '--glue', 'gamegeek', 'src/test/resources/features/']
+                    '--glue', 'tests', 'src/test/resources/features/']
         }
     }
 }

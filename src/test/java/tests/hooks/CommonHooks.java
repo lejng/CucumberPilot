@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CommonHooks {
 
-    @Before
+    @Before(value = "@ui")
     public void setUp(){
         Configuration.browser = PropertyHelper.getBrowserName();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
         open(PropertyHelper.getBaseUrl());
     }
 
-    @After
+    @After(value = "@ui")
     public void tearDown(){
         WebDriverRunner.closeWebDriver();
     }
